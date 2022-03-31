@@ -7,7 +7,8 @@ import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications';
 import ChatIcon from '@mui/icons-material/Chat';
 import ListIcon from '@mui/icons-material/List';
-import "./DSC_3692.jpg"
+
+
 
 const navBar = () => {
   return (
@@ -32,17 +33,17 @@ const navBar = () => {
     </div>
     <div className='item'>
     <CircleNotificationsIcon className='icon'/>
-    
+    <div className='counter'>1</div>
     </div>
     <div className='item'>
     <ChatIcon className='icon'/>
-    
+    <div className='counter'>2</div>
     </div>
     <div className='item'>
     <ListIcon className='icon'/>
     </div>
     <div className='item'>
-    <img src='DSC_3692.jpg' alt='' className='pic' />
+    <img src='../assets/DSC_3692.jpg' alt='pic' className='pic' />
     </div>
     </div>
     </div>
