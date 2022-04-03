@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./sidebar.scss";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
@@ -12,12 +12,19 @@ import PsychologyIcon from '@mui/icons-material/Psychology';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { Link } from 'react-router-dom';
+import { DarkModeContext } from '../../context/darkModeContext';
 
 const Sidebar = () => {
+    const {dispatch} = useContext(DarkModeContext)
+
   return (
     <div className='sidebar'>
     <div className='top'>
-    <span className='logo'>ifeday</span>
+    <Link to="/" style={{textDecoration:"none"}}>
+    <span className='logo' >ifeday</span>
+    </Link>
+   
     </div>
     <hr></hr>
     <div className='center'>
@@ -27,14 +34,19 @@ const Sidebar = () => {
         <DashboardIcon className='icon'/>
             <span>Dashboard</span>
         </li>
+        <p className='title'>LISTS</p>
+        <Link to="/users" style={{textDecoration:"none"}}>
         <li>
         <SupervisedUserCircleIcon className='icon'/>
-            <span>Usesrs</span>
+            <span>Users</span>
         </li>
+        </Link>
+        <Link to="/products" style={{textDecoration:"none"}}>
         <li>
         <ProductionQuantityLimitsIcon className='icon'/>
             <span>Products</span>
         </li>
+        </Link>
         <p className='title'>USEFUL</p>
         <li>
         <LocalPostOfficeIcon className='icon'/>
@@ -77,8 +89,8 @@ const Sidebar = () => {
     </ul>
     </div>
     <div className='bottom'>
-    <div className='colorOption'></div>
-    <div className='colorOption'></div>
+    <div className='colorOption' onClick={()=> dispatch({type:"LIGHT"})}></div>
+    <div className='colorOption' onClick={()=> dispatch({type:"DARK"})}></div>
     
     </div>
     </div>
